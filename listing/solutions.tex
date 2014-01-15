@@ -11,8 +11,9 @@
 % \usepackage{multicol}    % used for two col table of contents
 % \usepackage{tocloft}     % dotted lines in toc
 \usepackage{changepage}     % move toc table to the left
+\usepackage{longtable}  % make tables that across several pages
 
-\geometry{a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm,showframe=true}
+\geometry{a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm}
 \definecolor{dkgreen}{rgb}{0,0.5,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -53,35 +54,98 @@ numberstyle=\tiny\color{gray}
 \begin{document}
 
     % \begin{adjustwidth}{-0.75cm}{}
-    \begin{tabular}{ p{2cm} p{7cm} p{3cm} r r}
+    \begin{longtable}{ p{2cm} p{7cm} p{3cm} r r}
         name & problem & solution & author & P\\
       \hline
         Checking Change 
-        & \textit{Given a number of different coin-values $c_i$, 
-            output the minimum number of coins that are necessary to represent $m_i$.} 
+        & Given a number of different coin-values $c_i$, 
+            output the minimum number of coins that are necessary to represent $m_i$.
         & DP       & Ben    & \pageref{sec:checking_change} \\
 
         Dominoes 
-        & \textit{Given a list of tiles of different heights, determine how many tiles will
-            fall after toppling the left-most tile.} 
-        & trivial & Ben & \ref{sec:dominoes} \\
+        & Given a list of tiles of different heights, determine how many tiles will
+            fall after toppling the left-most tile.
+        & - & Ben & \ref{sec:dominoes} \\
 
         Shelves 
-        & \textit{Given two different types of shelves with length $m$ and $n$, $m\leq n$ and an empty space with length $l$,
+        & Given two different types of shelves with length $m$ and $n$, $m\leq n$ and an empty space with length $l$,
             determine the optimal number of shelves $x$ and $y$ such that $x*m + y*n = l-\epsilon$, $epsilon>0$,
-            epsilon is minimized. Second objective is minimizing $y$.} 
+            epsilon is minimized. Second objective is minimizing $y$.
         & clever loop with branching that reduces runtime to $O(\sqrt{l})$ & Ben & \ref{sec:shelves} \\
 
         Even Pairs 
-        & \textit{Given a list $x_1,\dots,x_n$, count the number of pairs $1\leq i\leq j \leq n$ for which 
-            the sum is even.} 
+        & Given a list $x_1,\dots,x_n$, count the number of pairs $1\leq i\leq j \leq n$ for which 
+            the sum is even.
         & DP & Jonas & \ref{sec:even_pairs} \\
 
+        Aliens
+        & Given a set of intervals, count those that have an element that is not contained in any other interval. 
+        & - & Jonas & \ref{sec:aliens} \\
 
+        Boats 
+        & Given a set of boat lengths $l_i$ and positions of rings $p_i$, determine the maximum number of boats that can be tied.
+        & Greedy (Boat with earliest end then longest) & Jonas & \ref{sec:boats} \\
 
-                % & \textit{Given a set of intervals...} & Aliens & Ben & \ref{sec:aliens} \\
-        % & \textit{Given ...} & Checking Change & Ben & \ref{sec:checking_change} \\
-    \end{tabular}    
+        False Coin 
+        & Given a series weighing outcomes of several coins, determine which coin has a different weight than the other coins. 
+        & - & Jonas & \ref{sec:false_coin} \\
+
+        Formula One 
+        & Given a sequence of integers, determine the minimum number of "swaps" of numbers at position $i$ and $i+1$ are necessary to sort the list. 
+        & merge sort and count swaps & Jonas & \ref{sec:formula_one} \\
+
+        Race Tracks 
+        & Given a rectangular grid with obstacles, a start $S$ and goal position. An agent $A$ starts at $S$, has a $x$-$y$-velocity $(a,b)$ 
+            $-3\leq a,b \leq3$. After each move $A$ can adjust $a'=a+n_a, b'=b+n_b, n_a,n_b \in \{-1,0,1\}$. 
+            Determine the minimum number of moves necessary for $A$ to reach the goal. 
+        & represent $(x,y,(a,b))$ as a node in a graph, BFS & Jonas & \ref{sec:race_tracks} \\
+
+        Burning Coins 
+        & Given a sequence of coins $c_1, \dots, c_n$ with values $v_1,\dots,v_n$. 
+            Each player $\in \{A,B\}$ is alternately allowed to remove the leftmost or rightmost coin of the sequence until the sequence is empty. 
+            Output the maximum value of coins that $A$ can remove. 
+        & DP & Jonas & \ref{sec:burning_coins} \\
+
+        Jump 
+        & Given $n$ cells, a number representing how far the agent can jump and the cost $a_i$ to land on a cell. 
+            Determine the minimum cost to get from cell $1$ to cell $n$.        
+        & DP & Jonas & \ref{sec:jump} \\
+
+        Light Pattern 
+        & Given a sequence of $n$ bulbs that are in the states "on" or "off", determine the minimal number of "changes" that are necessary such that  
+            each interval $i*k$ to $(i+1)*k$ of the bulbs follows a given pattern. A "change" is either changing the state of a single bulb or
+            change the state of every  bulb from $0$ up to $t*k-1$.
+        & - & Jonas & \ref{sec:light_pattern} \\
+
+        Longest Path 
+        & Determine the length of the longest path in a tree.
+        & DFS while recording tree height & Jonas & \ref{sec:longest_path} \\
+
+        Ants 
+        & Given a graph $G$, and nodes $S_i$ of subgraphs $i$. 
+            Build the subgraphs $i$ by starting at $S_i$ and do a uniform cost search until all nodes are explored.
+            Find the cheapest path by combining all $S_i$ (not G) from node $a$ to $b$. 
+        & MST, then Dijkstra & Jonas & \ref{sec:ants} \\
+
+        Bridges 
+        & Given a connected graph $G$, find the edges whose lacking would result in two connected components         
+        & Biconnected components & Jonas & \ref{sec:bridges} \\
+
+        Build The Graph 
+        &          
+        & MST and Dijkstra & Jonas & \ref{sec:build_the_graph} \\
+
+        Deleted Entries 
+        & Given a graph $G$. Determine whether it is possible to divide the graph into $k$ groups such that every node can reach every node in every other group
+            after deleting the in-group edges.
+        & MST and BFS to $k$-color & Jonas & \ref{sec:deleted_entries} \\
+
+        Shy Programmers 
+        & Given a graph $G$, decide if it is outerplanar, i.e., you can draw it in a plane so that all vertices lie on a 
+            circle and all edges are straight and don't intersect.
+        & construct $G'$ then planarity test & Jonas & \ref{sec:shy_programmers} \\
+
+    \end{longtable}    
     % \end{adjustwidth}
 
     %%%%%% week 1
