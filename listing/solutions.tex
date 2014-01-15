@@ -2,6 +2,7 @@
 
 \usepackage{hyperref}   % hyperlinking toc
 \usepackage{listings}
+\usepackage{amssymb}  % for mathbb 
 \usepackage{MnSymbol}
 \usepackage{geometry}
 % \usepackage{algorithmic}
@@ -12,6 +13,11 @@
 % \usepackage{tocloft}     % dotted lines in toc
 \usepackage{changepage}     % move toc table to the left
 \usepackage{longtable}  % make tables that across several pages
+
+% tabular columns with nicely formatted text
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\renewcommand{\arraystretch}{1.5}
 
 \geometry{a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm}
 \definecolor{dkgreen}{rgb}{0,0.5,0}
@@ -54,7 +60,7 @@ numberstyle=\tiny\color{gray}
 \begin{document}
 
     % \begin{adjustwidth}{-0.75cm}{}
-    \begin{longtable}{ p{2cm} p{7cm} p{3cm} r r}
+    \begin{longtable}{ L{2cm} L{7cm} L{3cm} r r}
         name & problem & solution & author & P\\
       \hline
         Checking Change 
@@ -145,6 +151,132 @@ numberstyle=\tiny\color{gray}
             circle and all edges are straight and don't intersect.
         & construct $G'$ then planarity test & Jonas & \ref{sec:shy_programmers} \\
 
+        Algocoon 
+        & Given a directed graph $G$ find the global minimum (directed) cut.
+        & Find source/sink that minimize flow. Start BFS from source to get the cut. & Jonas & \ref{sec:algocoon} \\
+
+        Buddy Selection
+        & Given $n$ students with $c$ hobbies each. Determine if they can be matched in pairs such that each pair shares at least $f$ hobbies.
+        & Maximum matching size & Jonas & \ref{sec:buddy_selection} \\
+
+        Satellites 
+        & Minimum vertex cover of unweighted bipartite graph. 
+        & Compute maximum matching and use Konigs Theorem & Jonas & \ref{sec:satellites} \\
+
+        Coin Tossing
+        & Given a sequence of $m$ games, some with known result, some without and $s_1,\dots,s_n$ the number of won games for each player.
+            Determine if it is possible to assign outcomes to unknown games and get standings.
+        & Maximum flow & Jonas & \ref{sec:coin_tossing} \\
+
+        Kingdom Defense 
+        & Given graph with maximum and minimum edge capacities and starting and minimum ending vertex budget.
+            Determine if its possible to send have a flow in the network such that min and max edge capacities and the minimum ending vertex budget holds.            
+        & Model minimal edge capacities, then maximum flow problem & Jonas & \ref{sec:kingdom_defense} \\
+
+        Hit 
+        & Given a ray and some line segments. Determine if ray intersects any segment. 
+        & loop \& test intersection & Jonas & \ref{sec:hit} \\
+
+        First Hit 
+        & Given a ray and some line segments, where does the ray first intersect a segment? 
+        & randomize segment order, loop while minimizing intersection & Jonas & \ref{sec:first_hit} \\
+
+        Antenna 
+        & Given a set of points, find the minimum enclosing circle. 
+        & Minimum enclosing circle & Jonas & \ref{sec:antenna} \\
+
+        Almost Antenna
+        & Given a set of points, find the minimum circle that encloses all but one point.
+        & Minimum enclosing circle & Jonas & \ref{sec:almost_antenna} \\
+
+        Search Snippets 
+        & Given a set of numbers and their 1D-positions (many for a single number) in a sequence, find the minimum length 
+            of a sequence such that all numbers are occuring.       
+        & Sweepline & Jonas & \ref{sec:search_snippets} \\
+
+        Search Snippets 
+        & Given a set of numbers and their 1D-positions (many for a single number) in a sequence, find the minimum length 
+            of a sequence such that all numbers are occuring.       
+        & Sweepline & Jonas & \ref{sec:search_snippets} \\
+
+        Bistro 
+        & Given a set of points in the plane $S$ and a set of points $T$. Determine for each point in $T$ the distance to the closest point in $S$.
+        & Delaunay triangulation on $S$ & Jonas & \ref{sec:bistro} \\
+
+        Germs 
+        & Given a rectangle $R$ and a set of points $G$ inside the rectangle. For every point determine the minimal distance between either any other 
+            point or the rectangle boundary.
+        & Delaunay triangulation, then find shortest incident triangulation edge & \ref{sec:germs} \\
+
+        Graypes 
+        & Given a set of points $G$ find the shortest distance between any pair of the points.
+        & Delaunay triangulation & \ref{sec:graypes} \\
+
+        H1N1
+        & How to move a disk without colliding with a given point set?
+        & Precompute for each Delaunay-face the escape radius using DFS. & Jonas & \ref{sec:h1n1} \\
+
+        Hiking Maps 
+        & Given a polygonal path $p_0,\dots,p_{m-1}$ and triangles $t_0,\dots,t_{n-1}$, what is the minimum length of 
+            an interval $[b,e)$contained in$[0,n)$ such that each leg $p_ip_{i+1}$ of the path is contained in at least one of
+                    $t_b,\dots,t_{e-1}$
+        & Fast triangle intersection test and Sweepline & Jonas & \ref{sec:hiking_maps} \\
+
+        Collisions 
+        & Given a set $P$ of points in the plane and a number $d$, 
+            how many points from $P$ have at least one other point from $P$ in distance $<d$?        
+        & Delaunay triangulation & Jonas & \ref{sec:collisions} \\
+
+        Diet 
+        & Given the price of a food product and some nutritional constraints, calculate the cheapest diet.
+        & Linear Programming & Jonas & \ref{sec:diet} \\
+
+        Inball 
+        & Given a cave $C=\{x\in \mathbb{R} ^d|a_i^Tx\leq b_i, i=1,\dots,n\}.$ Find the ball with the largest radius that is contained in $C$.
+        & Linear Programming & Jonas & \ref{sec:inball} \\
+
+        Maximize It
+        & Solve two quadratic programs. 
+        & Quadratic Programming & Jonas & \ref{sec:maximize_it} \\
+
+        Portfolios 
+        & Given price, expected return and the covariance matrix of some assets 
+            and the minimum expected portfolio return, maximum portfolio cost  and maximum portfolio variance of some investor. 
+            Determine if a portfolio for the investor exists.
+        & Quadratic Programming & Jonas & \ref{sec:portfolios} \\
+
+        Monkey Island 
+        & Let $G$ be a graph $(V,E)$ with costs on vertices. Let $S$ be a subset of vertices,
+            such that $\forall v\in V,\exists s\in S$ and there is a path from  $s$ to $v$. 
+            Find $S$ that minimises $\sum_{s\in S}cost(s)$ 
+        & Strongly connected components & Jonas & \ref{sec:monkey_island} \\
+
+        Placing Knights 
+        & Determine the maximum number of chess-knights on a field with given size and obstacles.
+        & Maximum independent set ($n$-maximum matching) & Jonas & \ref{sec:placing_knights} \\
+
+        Shopping Trip 
+        & Given a Graph and a set of nodes $S$ and a node $s$. 
+            Determine if its possible to find $|S|$ edge disjoint paths from $s$ to $S_i \forall S_i \in S$. 
+        & Maximum flow & Jonas & \ref{sec:shopping_trip} \\
+
+        Theev 
+        & Given a set of points $P$ and the center of a circle $C_1$ in the plane. Determine the radius of two circles
+            with centers $C_1$ and $C_2$ such that all points in $P$ are covered.
+        & Sorting and Min circle & Jonas & \ref{sec:theev} \\
+
+        Poker Chips 
+        & Given some stacks $S_i$ with chips $c_{ij}$ each having a color. 
+            An agent $A$ is allowed to remove the topmost chip from each stack provided they have the same color.
+            If $A$ removed $k>1$ chips, he is awarded with $2^{k-2}$ points. 
+            Determine the maximum number of points for the given $S_i$.          
+            & Dynamic Programming & Jonas & \ref{sec:poker_chips} \\
+
+        Portfolios revisited 
+        & Given price, expected return and the covariance matrix of some assets 
+            and the maximum portfolio cost and maximum portfolio variance of some investor. 
+            Determine the maximum possible expected return.
+            & Quadratic Programming and Binary Search & Jonas & \ref{sec:poker_chips} \\
     \end{longtable}    
     % \end{adjustwidth}
 
