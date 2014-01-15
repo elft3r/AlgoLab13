@@ -4,15 +4,16 @@
 \usepackage{listings}
 \usepackage{MnSymbol}
 \usepackage{geometry}
-\usepackage{algorithmic}
-\usepackage{algorithm}
+% \usepackage{algorithmic}
+% \usepackage{algorithm}
 \usepackage[x11names,svgnames,dvipsnames]{xcolor}
 \usepackage{titlesec}    % used for automatic page break.
-\usepackage{multicol}    % used for two col table of contents
-\usepackage{tocloft}     % dotted lines in toc
+% \usepackage{multicol}    % used for two col table of contents
+% \usepackage{tocloft}     % dotted lines in toc
+\usepackage{changepage}     % move toc table to the left
 
-\geometry{a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm}
-\definecolor{dkgreen}{rgb}{0,0.6,0}
+\geometry{a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm,showframe=true}
+\definecolor{dkgreen}{rgb}{0,0.5,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
@@ -22,7 +23,7 @@
 \renewcommand{\thesection}{\hspace*{-1.0em}}    % removing numbering of section
 \renewcommand{\thesubsection}{\arabic{subsection}}    % numbering subsection
 
-%use arrows to indicate line breaks in listings
+% use arrows to indicate line breaks in listings
 \lstset{prebreak=\raisebox{0ex}[0ex][0ex]
         {\ensuremath{\rhookswarrow}}}
 \lstset{postbreak=\raisebox{0ex}[0ex][0ex]
@@ -30,11 +31,14 @@
 \lstset{breaklines=true, breakatwhitespace=true}
 \lstset{numbers=left, numberstyle=\scriptsize}
 \lstset{
+basicstyle=\footnotesize\ttfamily,
+basewidth  = {.5em,0.5em},
 keywordstyle=\color{blue},
 tabsize=4,
 commentstyle=\color{dkgreen},
 stringstyle=\color{mauve},
 numberstyle=\tiny\color{gray}
+% columns=flexible,
 }
 
 \newcommand{\sectionbreak}{\clearpage}    %breaks page before section.
@@ -42,20 +46,44 @@ numberstyle=\tiny\color{gray}
 %define general listing command
 \newcommand{\includecode}[1]{
     \lstinputlisting[   language=C++,
-                        basicstyle=\small,
                         breaklines=true,
                         breakautoindent=true,
                         linewidth=18cm]{#1}}
 
 \begin{document}
 
-    \begin{multicols}{2}
-        \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-        \renewcommand*\contentsname{Problems}
-        \setcounter{tocdepth}{1}    % only show problem titles.
-        \tableofcontents
-    \end{multicols}
-    
+    % \begin{adjustwidth}{-0.75cm}{}
+    \begin{tabular}{ p{2cm} p{7cm} p{3cm} r r}
+        name & problem & solution & author & P\\
+      \hline
+        Checking Change 
+        & \textit{Given a number of different coin-values $c_i$, 
+            output the minimum number of coins that are necessary to represent $m_i$.} 
+        & DP       & Ben    & \pageref{sec:checking_change} \\
+
+        Dominoes 
+        & \textit{Given a list of tiles of different heights, determine how many tiles will
+            fall after toppling the left-most tile.} 
+        & trivial & Ben & \ref{sec:dominoes} \\
+
+        Shelves 
+        & \textit{Given two different types of shelves with length $m$ and $n$, $m\leq n$ and an empty space with length $l$,
+            determine the optimal number of shelves $x$ and $y$ such that $x*m + y*n = l-\epsilon$, $epsilon>0$,
+            epsilon is minimized. Second objective is minimizing $y$.} 
+        & clever loop with branching that reduces runtime to $O(\sqrt{l})$ & Ben & \ref{sec:shelves} \\
+
+        Even Pairs 
+        & \textit{Given a list $x_1,\dots,x_n$, count the number of pairs $1\leq i\leq j \leq n$ for which 
+            the sum is even.} 
+        & DP & Jonas & \ref{sec:even_pairs} \\
+
+
+
+                % & \textit{Given a set of intervals...} & Aliens & Ben & \ref{sec:aliens} \\
+        % & \textit{Given ...} & Checking Change & Ben & \ref{sec:checking_change} \\
+    \end{tabular}    
+    % \end{adjustwidth}
+
     %%%%%% week 1
     
     \section{Checking Change}
