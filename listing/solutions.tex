@@ -140,6 +140,12 @@ numberstyle=\tiny\color{gray}
             Determine the maximum number of points for the given $S_i$.          
             & DP &  \pageref{sec:poker_chips} \\
 
+        Connecting capitals 
+        & Given a tree. 
+        Determine the largest set of vertex disjoint edges.
+        & DP &  lec. 12 \\
+
+
         Race Tracks 
         & Given a rectangular grid with obstacles, a start $S$ and goal position. An agent $A$ starts at $S$, has a $x$-$y$-velocity $(a,b)$ 
             $-3\leq a,b \leq3$. After each move $A$ can adjust $a'=a+n_a, b'=b+n_b, n_a,n_b \in \{-1,0,1\}$. 
@@ -194,6 +200,12 @@ numberstyle=\tiny\color{gray}
             Determine the maximum number of "tiles" consisting of two neighboring cells fit in the array. 
             No cell of a tile can be placed on an "obstacle" cell. 
             & Maximum matching &  \pageref{sec:tiles} \\
+
+        Consecutive Constructions 
+        & Given a DAG. 
+        Determine the maximum number of edges that can be packed in vertex-disjoint paths.            
+        & Maximum matching &  lec. 12 \\
+
 
         Satellites 
         & Minimum vertex cover of unweighted bipartite graph. 
@@ -332,6 +344,17 @@ numberstyle=\tiny\color{gray}
         & Given a set of points $H$ and a set of points $T$ in the plane. Determine the smallest number $d$, such that a polynomial 
             of degree $d$ can completely distinguish all points in $H$ from all points $T$.
             & Linear programming &  \pageref{sec:radiation} \\
+
+        Missing Roads 
+        & Given a weighted undirected graph and a number $k$, 
+            determine the matching $M$ consisting of $k$ edges where the sum of the weights in $M$ is minimized.
+        & Linear programming. & \pageref{sec:missing_roads} \\
+
+        Software update 
+        & Given a list of centers of disks in the plane. Determine the maximal sum of the radii such that no two disks overlap
+        & Linear programming. & lec.13 \\
+
+
 
         Maximize It
         & Solve two quadratic programs. 
@@ -692,5 +715,16 @@ numberstyle=\tiny\color{gray}
         \label{sec:radiation_2}
         Missing.
         %\includecode{../problems/w13/Radiation/Radiation\algoAuthor.cpp}
+
+    \section{Missing Roads}
+        \label{sec:missing_roads}
+        Standard maximum matching in Linear Programming formulation:
+
+        For each edge between $u$ and $v$ introduce variable $x_{uv}$. If the variable is set to $1$ the the edge is part of the matching, 
+        and if it set to 0, the edge is not in the matching.
+        $\max \sum x_{uv}$
+        Subject to the constraint that no for every vertex $u$
+        $x_{uv_1} + x_{uv_2} + \dots \leq 1$
+    
     
 \end{document}
