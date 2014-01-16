@@ -73,15 +73,14 @@ numberstyle=\tiny\color{gray}
     \begin{longtable}{ L{2cm} L{8cm} L{4cm} r}
         name & problem & solution & P\\
       \hline
-        Checking Change 
-        & Given a number of different coin-values $c_i$, 
-            output the minimum number of coins that are necessary to represent $m_i$.
-        & DP       & \pageref{sec:checking_change} \\
-
         Dominoes 
         & Given a list of tiles of different heights, determine how many tiles will
             fall after toppling the left-most tile.
         & - &  \pageref{sec:dominoes} \\
+
+        Aliens
+        & Given a set of intervals, count those that have an element that is not contained in any other interval. 
+        & - &  \pageref{sec:aliens} \\
 
         Shelves 
         & Given two different types of shelves with length $m$ and $n$, $m\leq n$ and an empty space with length $l$,
@@ -89,32 +88,39 @@ numberstyle=\tiny\color{gray}
             epsilon is minimized. Second objective is minimizing $y$.
         & clever loop with branching that reduces runtime to $O(\sqrt{l})$ &  \pageref{sec:shelves} \\
 
-        Even Pairs 
-        & Given a list $x_1,\dots,x_n$, count the number of pairs $1\leq i\leq j \leq n$ for which 
-            the sum is even.
-        & DP &  \pageref{sec:even_pairs} \\
-
-        Aliens
-        & Given a set of intervals, count those that have an element that is not contained in any other interval. 
-        & - &  \pageref{sec:aliens} \\
-
-        Boats 
-        & Given a set of boat lengths $l_i$ and positions of rings $p_i$, determine the maximum number of boats that can be tied.
-        & Greedy (Boat with earliest end then longest) &  \pageref{sec:boats} \\
-
         False Coin 
         & Given a series weighing outcomes of several coins, determine which coin has a different weight than the other coins. 
         & - &  \pageref{sec:false_coin} \\
+
+        Light Pattern 
+        & Given a sequence of $n$ bulbs that are in the states "on" or "off", determine the minimal number of "changes" that are necessary such that  
+            each interval $i*k$ to $(i+1)*k$ of the bulbs follows a given pattern. A "change" is either changing the state of a single bulb or
+            change the state of every  bulb from $0$ up to $t*k-1$.
+        & - &  \pageref{sec:light_pattern} \\
+
+        Divisor Distance 
+        & Given a number $n$. Let $G_n$ be a graph with $1$ to $n$ as vertices. Further, in $G_n$ there is an (undirected) 
+            edge between vertices $i$ and $j$ with $i>j$ iff $j$ is the largest proper divisor of $i$. 
+            Determine the minimal distance of two given vertices in this graph.
+        & - &  \pageref{sec:divisor_distance} \\
 
         Formula One 
         & Given a sequence of integers, determine the minimum number of "swaps" of numbers at position $i$ and $i+1$ are necessary to sort the list. 
         & merge sort and count swaps &  \pageref{sec:formula_one} \\
 
-        Race Tracks 
-        & Given a rectangular grid with obstacles, a start $S$ and goal position. An agent $A$ starts at $S$, has a $x$-$y$-velocity $(a,b)$ 
-            $-3\leq a,b \leq3$. After each move $A$ can adjust $a'=a+n_a, b'=b+n_b, n_a,n_b \in \{-1,0,1\}$. 
-            Determine the minimum number of moves necessary for $A$ to reach the goal. 
-        & represent $(x,y,(a,b))$ as a node in a graph, BFS &  \pageref{sec:race_tracks} \\
+        Boats 
+        & Given a set of boat lengths $l_i$ and positions of rings $p_i$, determine the maximum number of boats that can be tied.
+        & Greedy (Boat with earliest end then longest) &  \pageref{sec:boats} \\
+
+        Checking Change 
+        & Given a number of different coin-values $c_i$, 
+            output the minimum number of coins that are necessary to represent $m_i$.
+        & DP       & \pageref{sec:checking_change} \\
+
+        Even Pairs 
+        & Given a list $x_1,\dots,x_n$, count the number of pairs $1\leq i\leq j \leq n$ for which 
+            the sum is even.
+        & DP &  \pageref{sec:even_pairs} \\
 
         Burning Coins 
         & Given a sequence of coins $c_1, \dots, c_n$ with values $v_1,\dots,v_n$. 
@@ -127,15 +133,31 @@ numberstyle=\tiny\color{gray}
             Determine the minimum cost to get from cell $1$ to cell $n$.        
         & DP &  \pageref{sec:jump} \\
 
-        Light Pattern 
-        & Given a sequence of $n$ bulbs that are in the states "on" or "off", determine the minimal number of "changes" that are necessary such that  
-            each interval $i*k$ to $(i+1)*k$ of the bulbs follows a given pattern. A "change" is either changing the state of a single bulb or
-            change the state of every  bulb from $0$ up to $t*k-1$.
-        & - &  \pageref{sec:light_pattern} \\
+        Poker Chips 
+        & Given some stacks $S_i$ with chips $c_{ij}$ each having a color. 
+            An agent $A$ is allowed to remove the topmost chip from each stack provided they have the same color.
+            If $A$ removed $k>1$ chips, he is awarded with $2^{k-2}$ points. 
+            Determine the maximum number of points for the given $S_i$.          
+            & DP &  \pageref{sec:poker_chips} \\
+
+        Race Tracks 
+        & Given a rectangular grid with obstacles, a start $S$ and goal position. An agent $A$ starts at $S$, has a $x$-$y$-velocity $(a,b)$ 
+            $-3\leq a,b \leq3$. After each move $A$ can adjust $a'=a+n_a, b'=b+n_b, n_a,n_b \in \{-1,0,1\}$. 
+            Determine the minimum number of moves necessary for $A$ to reach the goal. 
+        & represent $(x,y,(a,b))$ as a node in a graph, BFS &  \pageref{sec:race_tracks} \\
 
         Longest Path 
         & Determine the length of the longest path in a tree.
         & DFS while recording tree height &  \pageref{sec:longest_path} \\
+
+        Odd Route
+        & Given a directed weighted graph $G$ and two vertices $s,t$ of $G$. Find the shortest path from 
+            $s$ to $t$ such that both its number of edges and total weight are odd.
+        & Construct $G'$, then Dijkstra &  \pageref{sec:odd_route} \\
+
+        Build The Graph 
+        &          
+        & MST and Dijkstra &  \pageref{sec:build_the_graph} \\
 
         Ants 
         & Given a graph $G$, and nodes $S_i$ of subgraphs $i$. 
@@ -143,45 +165,82 @@ numberstyle=\tiny\color{gray}
             Find the cheapest path by combining all $S_i$ (not G) from node $a$ to $b$. 
         & MST, then Dijkstra &  \pageref{sec:ants} \\
 
-        Bridges 
-        & Given a connected graph $G$, find the edges whose lacking would result in two connected components         
-        & Biconnected components &  \pageref{sec:bridges} \\
-
-        Build The Graph 
-        &          
-        & MST and Dijkstra &  \pageref{sec:build_the_graph} \\
-
         Deleted Entries 
         & Given a graph $G$. Determine whether it is possible to divide the graph into $k$ groups such that every node can reach every node in every other group
             after deleting the in-group edges.
         & MST and BFS to $k$-color &  \pageref{sec:deleted_entries} \\
+
+        Monkey Island 
+        & Let $G$ be a graph $(V,E)$ with costs on vertices. Let $S$ be a subset of vertices,
+            such that $\forall v\in V,\exists s\in S$ and there is a path from  $s$ to $v$. 
+            Find $S$ that minimises $\sum_{s\in S}cost(s)$ 
+        & Strongly connected components &  \pageref{sec:monkey_island} \\
+
+        Bridges 
+        & Given a connected graph $G$, find the edges whose lacking would result in two connected components         
+        & Biconnected components &  \pageref{sec:bridges} \\
 
         Shy Programmers 
         & Given a graph $G$, decide if it is outerplanar, i.e., you can draw it in a plane so that all vertices lie on a 
             circle and all edges are straight and don't intersect.
         & construct $G'$ then planarity test &  \pageref{sec:shy_programmers} \\
 
-        Algocoon 
-        & Given a directed graph $G$ find the global minimum (directed) cut.
-        & Find source/sink that minimize flow. Start BFS from source to get the cut. &  \pageref{sec:algocoon} \\
-
         Buddy Selection
         & Given $n$ students with $c$ hobbies each. Determine if they can be matched in pairs such that each pair shares at least $f$ hobbies.
         & Maximum matching size &  \pageref{sec:buddy_selection} \\
 
+        Tiles 
+        & Given a two-dimensional array of where each enty is either marked as "obstacle" or "no obstacle". 
+            Determine the maximum number of "tiles" consisting of two neighboring cells fit in the array. 
+            No cell of a tile can be placed on an "obstacle" cell. 
+            & Maximum matching &  \pageref{sec:tiles} \\
+
         Satellites 
         & Minimum vertex cover of unweighted bipartite graph. 
         & Compute maximum matching and use Konigs Theorem &  \pageref{sec:satellites} \\
+
+        Placing Knights 
+        & Determine the maximum number of chess-knights on a field with given size and obstacles.
+        & Maximum independent set ($n$-maximum matching) &  \pageref{sec:placing_knights} \\
+
+        Algocoon 
+        & Given a directed graph $G$ find the global minimum (directed) cut.
+        & Global minimum cut: find source/sink that minimize flow. Start BFS from source to get the cut. &  \pageref{sec:algocoon} \\
 
         Coin Tossing
         & Given a sequence of $m$ games, some with known result, some without and $s_1,\dots,s_n$ the number of won games for each player.
             Determine if it is possible to assign outcomes to unknown games and get standings.
         & Maximum flow &  \pageref{sec:coin_tossing} \\
 
+        Shopping Trip 
+        & Given a Graph and a set of nodes $S$ and a node $s$. 
+            Determine if its possible to find $|S|$ edge disjoint paths from $s$ to $S_i \forall S_i \in S$. 
+        & Maximum flow &  \pageref{sec:shopping_trip} \\
+
+        Tetris 
+        & Given an interval of width $w$ and a list $B$ of intervals with coordinates $[a_i,b_i], 0\leq a_i,b_i \leq w$ each.
+            A "full line" $L$ is a sequence of intervals of $B$ such that $[0,w]$ is contained in the concatenation of $l$.
+            Determine the maximum number of "full lines" $F$ that can be constructed using the intervals of $B$ while each interval
+            can only be used once. Moreover each interval border in $F$ is only allowed to occur once in $F$.
+            & Maximum flow &  \pageref{sec:tetris} \\
+
         Kingdom Defense 
         & Given graph with maximum and minimum edge capacities and starting and minimum ending vertex budget.
             Determine if its possible to send have a flow in the network such that min and max edge capacities and the minimum ending vertex budget holds.            
         & Model minimal edge capacities, then maximum flow problem &  \pageref{sec:kingdom_defense} \\
+
+        Sweepers 
+        & Given a undirected graph $G$, a list of start vertices $S$ and a list of end vertices $E, |S|=|E|$.
+            Determine if it is possible to find $|S|$ paths each starting at a vertex of $S$ and end at a vertex of $E$, 
+            (where every start and end vertex can only be used in one path) such that all edges of the graph occur in exactly one path.   
+        & Maximum flow and eulerian path check &  \pageref{sec:sweepers} \\
+
+        The Bracelet 
+        & Given a list $B$ of tuples $t_i = (c_{i,1}, c_{i,2})$ and a set of colors $c_{i,j}\in C\subset \mathbb{R}$.
+            Determine if it is possible to construct a strongly connected directed graph such that all tuples in $B$ occur once as vertices,
+            each tuple has exactly one ingoing and exacly one outgoing edge and the following edges are allowed: 
+            There can be an edge from $t_i$ to $t_k$ or from $t_k$ to $t_i$ if $c_{i,l_1} = c_{k,l_2}, l_1,l_2\in\{1,2\}$.   
+        & Eulerian path construction &  \pageref{sec:the_bracelet} \\
 
         Hit 
         & Given a ray and some line segments. Determine if ray intersects any segment. 
@@ -199,32 +258,28 @@ numberstyle=\tiny\color{gray}
         & Given a set of points, find the minimum circle that encloses all but one point.
         & Minimum enclosing circle &  \pageref{sec:almost_antenna} \\
 
-        Search Snippets 
-        & Given a set of numbers and their 1D-positions (many for a single number) in a sequence, find the minimum length 
-            of a sequence such that all numbers are occuring.       
-        & Sweepline &  \pageref{sec:search_snippets} \\
+        Theev 
+        & Given a set of points $P$ and the center of a circle $C_1$ in the plane. Determine the radius of two circles
+            with centers $C_1$ and $C_2$ such that all points in $P$ are covered.
+        & Sorting and Min circle &  \pageref{sec:theev} \\
 
         Search Snippets 
         & Given a set of numbers and their 1D-positions (many for a single number) in a sequence, find the minimum length 
             of a sequence such that all numbers are occuring.       
         & Sweepline &  \pageref{sec:search_snippets} \\
 
-        Bistro 
-        & Given a set of points in the plane $S$ and a set of points $T$. Determine for each point in $T$ the distance to the closest point in $S$.
-        & Delaunay triangulation on $S$ &  \pageref{sec:bistro} \\
+        Search Snippets 
+        & Given a set of numbers and their 1D-positions (many for a single number) in a sequence, find the minimum length 
+            of a sequence such that all numbers are occuring.       
+        & Sweepline &  \pageref{sec:search_snippets} \\
 
-        Germs 
-        & Given a rectangle $R$ and a set of points $G$ inside the rectangle. For every point determine the minimal distance between either any other 
-            point or the rectangle boundary.
-        & Delaunay triangulation, then find shortest incident triangulation edge & \pageref{sec:germs} \\
-
-        Graypes 
-        & Given a set of points $G$ find the shortest distance between any pair of the points.
-        & Delaunay triangulation & \pageref{sec:graypes} \\
-
-        H1N1
-        & How to move a disk without colliding with a given point set?
-        & Precompute for each Delaunay-face the escape radius using DFS. &  \pageref{sec:h1n1} \\
+        Beach Bar 
+        & Given a set of points $P$ in the line. 
+            Determine the integral position of a point $x$ such that $|P_x|$ is maximum, 
+            where $P_x$ are the points in $P$ that are closer than 100 units away from $x$.
+            Further, if multiple $x$ are possible minimize the distance $d_x$ to the farthest point in $P_x$. 
+            Output all optimal positions, $|P_x|$ and $d_x$  
+        & Sweepline &  \pageref{sec:beach_bar} \\
 
         Hiking Maps 
         & Given a polygonal path $p_0,\dots,p_{m-1}$ and triangles $t_0,\dots,t_{n-1}$, what is the minimum length of 
@@ -232,10 +287,38 @@ numberstyle=\tiny\color{gray}
                     $t_b,\dots,t_{e-1}$
         & Fast triangle intersection test and Sweepline &  \pageref{sec:hiking_maps} \\
 
+        Bistro 
+        & Given a set of points in the plane $S$ and a set of points $T$. Determine for each point in $T$ the distance to the closest point in $S$.
+        & Delaunay triangulation on $S$ &  \pageref{sec:bistro} \\
+
+        Graypes 
+        & Given a set of points $G$ find the shortest distance between any pair of the points.
+        & Delaunay triangulation & \pageref{sec:graypes} \\
+
         Collisions 
         & Given a set $P$ of points in the plane and a number $d$, 
             how many points from $P$ have at least one other point from $P$ in distance $<d$?        
         & Delaunay triangulation &  \pageref{sec:collisions} \\
+
+        Germs 
+        & Given a rectangle $R$ and a set of points $G$ inside the rectangle. For every point determine the minimal distance between either any other 
+            point or the rectangle boundary.
+        & Delaunay triangulation, then find shortest incident triangulation edge & \pageref{sec:germs} \\
+
+        H1N1
+        & How to move a disk without colliding with a given point set?
+        & Precompute for each Delaunay-face the escape radius using DFS. &  \pageref{sec:h1n1} \\
+
+        Cover 
+        & Given a rectangle and the center of $n$ disks. Determine the minimal radius s.t. the rectangle is fully covered.
+        & Delaunay triangulation (Voronoi) &  \pageref{sec:cover} \\
+
+        Light the Stage 
+        & Given a set $D$ of $m$ disks (players) in the plane, a number $h$ and a sequence $I_1,\dots,I_n$ 
+            of $n$ disks of radius h (lamps), denote by $A_i, i\in \{0,\dots,i\}$ the set of all disks $d\in D$ 
+            such that $d$ does not overlap with $I_j$, for any $j\in \{1,\dots,i\}$.
+            Determine the largest $k$ such that $A_k$ is not empty. Output $A_k$
+            & Delaunay and binary search &  \pageref{sec:light_the_stage} \\
 
         Diet 
         & Given the price of a food product and some nutritional constraints, calculate the cheapest diet.
@@ -244,6 +327,11 @@ numberstyle=\tiny\color{gray}
         Inball 
         & Given a cave $C=\{x\in \mathbb{R} ^d|a_i^Tx\leq b_i, i=1,\dots,n\}.$ Find the ball with the largest radius that is contained in $C$.
         & Linear Programming &  \pageref{sec:inball} \\
+
+        Radiation 
+        & Given a set of points $H$ and a set of points $T$ in the plane. Determine the smallest number $d$, such that a polynomial 
+            of degree $d$ can completely distinguish all points in $H$ from all points $T$.
+            & Linear programming &  \pageref{sec:radiation} \\
 
         Maximize It
         & Solve two quadratic programs. 
@@ -255,39 +343,6 @@ numberstyle=\tiny\color{gray}
             Determine if a portfolio for the investor exists.
         & Quadratic Programming &  \pageref{sec:portfolios} \\
 
-        Monkey Island 
-        & Let $G$ be a graph $(V,E)$ with costs on vertices. Let $S$ be a subset of vertices,
-            such that $\forall v\in V,\exists s\in S$ and there is a path from  $s$ to $v$. 
-            Find $S$ that minimises $\sum_{s\in S}cost(s)$ 
-        & Strongly connected components &  \pageref{sec:monkey_island} \\
-
-        Placing Knights 
-        & Determine the maximum number of chess-knights on a field with given size and obstacles.
-        & Maximum independent set ($n$-maximum matching) &  \pageref{sec:placing_knights} \\
-
-        Shopping Trip 
-        & Given a Graph and a set of nodes $S$ and a node $s$. 
-            Determine if its possible to find $|S|$ edge disjoint paths from $s$ to $S_i \forall S_i \in S$. 
-        & Maximum flow &  \pageref{sec:shopping_trip} \\
-
-        Theev 
-        & Given a set of points $P$ and the center of a circle $C_1$ in the plane. Determine the radius of two circles
-            with centers $C_1$ and $C_2$ such that all points in $P$ are covered.
-        & Sorting and Min circle &  \pageref{sec:theev} \\
-
-        Poker Chips 
-        & Given some stacks $S_i$ with chips $c_{ij}$ each having a color. 
-            An agent $A$ is allowed to remove the topmost chip from each stack provided they have the same color.
-            If $A$ removed $k>1$ chips, he is awarded with $2^{k-2}$ points. 
-            Determine the maximum number of points for the given $S_i$.          
-            & Dynamic Programming &  \pageref{sec:poker_chips} \\
-
-        Portfolios revisited 
-        & Given price, expected return and the covariance matrix of some assets 
-            and the maximum portfolio cost and maximum portfolio variance of some investor. 
-            Determine the maximum possible expected return.
-            & Quadratic Programming and Binary search &  \pageref{sec:portfolios_revisited} \\
-
         Stamp Exhibition 
         & Given a set of stamps $S$, a set of lamps $L$ and a set of segments $W$ in the plane. 
             Each $s_i\in S$ has a maximal allowed light intensity $M_i$. Determine if its possible to 
@@ -295,66 +350,11 @@ numberstyle=\tiny\color{gray}
             but smaller $M_i$.
         & Quadratic Programming &  \pageref{sec:stamp_exhibition} \\
 
-        Tetris 
-        & Given an interval of width $w$ and a list $B$ of intervals with coordinates $[a_i,b_i], 0\leq a_i,b_i \leq w$ each.
-            A "full line" $L$ is a sequence of intervals of $B$ such that $[0,w]$ is contained in the concatenation of $l$.
-            Determine the maximum number of "full lines" $F$ that can be constructed using the intervals of $B$ while each interval
-            can only be used once. Moreover each interval border in $F$ is only allowed to occur once in $F$.
-            & Maximum flow &  \pageref{sec:tetris} \\
-
-        Beach Bar 
-        & Given a set of points $P$ in the line. 
-            Determine the integral position of a point $x$ such that $|P_x|$ is maximum, 
-            where $P_x$ are the points in $P$ that are closer than 100 units away from $x$.
-            Further, if multiple $x$ are possible minimize the distance $d_x$ to the farthest point in $P_x$. 
-            Output all optimal positions, $|P_x|$ and $d_x$  
-        & Sweepline &  \pageref{sec:beach_bar} \\
-
-        Cover 
-        & Given a rectangle and the center of $n$ disks. Determine the minimal radius s.t. the rectangle is fully covered.
-        & Delaunay triangulation (Voronoi) &  \pageref{sec:cover} \\
-
-        Divisor Distance 
-        & Given a number $n$. Let $G_n$ be a graph with $1$ to $n$ as vertices. Further, in $G_n$ there is an (undirected) 
-            edge between vertices $i$ and $j$ with $i>j$ iff $j$ is the largest proper divisor of $i$. 
-            Determine the minimal distance of two given vertices in this graph.
-        & - &  \pageref{sec:divisor_distance} \\
-
-        Tiles 
-        & Given a two-dimensional array of where each enty is either marked as "obstacle" or "no obstacle". 
-            Determine the maximum number of "tiles" consisting of two neighboring cells fit in the array. 
-            No cell of a tile can be placed on an "obstacle" cell. 
-            & Maximum matching &  \pageref{sec:tiles} \\
-
-        Light the Stage 
-        & Given a set $D$ of $m$ disks (players) in the plane, a number $h$ and a sequence $I_1,\dots,I_n$ 
-            of $n$ disks of radius h (lamps), denote by $A_i, i\in \{0,\dots,i\}$ the set of all disks $d\in D$ 
-            such that $d$ does not overlap with $I_j$, for any $j\in \{1,\dots,i\}$.
-            Determine the largest $k$ such that $A_k$ is not empty. Output $A_k$
-            & Delaunay and binary search &  \pageref{sec:light_the_stage} \\
-
-        Radiation 
-        & Given a set of points $H$ and a set of points $T$ in the plane. Determine the smallest number $d$, such that a polynomial 
-            of degree $d$ can completely distinguish all points in $H$ from all points $T$.
-            & Linear programming &  \pageref{sec:radiation} \\
-
-        Sweepers 
-        & Given a undirected graph $G$, a list of start vertices $S$ and a list of end vertices $E, |S|=|E|$.
-            Determine if it is possible to find $|S|$ paths each starting at a vertex of $S$ and end at a vertex of $E$, 
-            (where every start and end vertex can only be used in one path) such that all edges of the graph occur in exactly one path.   
-        & Maximum flow and eulerian path check &  \pageref{sec:sweepers} \\
-
-        The Bracelet 
-        & Given a list $B$ of tuples $t_i = (c_{i,1}, c_{i,2})$ and a set of colors $c_{i,j}\in C\subset \mathbb{R}$.
-            Determine if it is possible to construct a strongly connected directed graph such that all tuples in $B$ occur once as vertices,
-            each tuple has exactly one ingoing and exacly one outgoing edge and the following edges are allowed: 
-            There can be an edge from $t_i$ to $t_k$ or from $t_k$ to $t_i$ if $c_{i,l_1} = c_{k,l_2}, l_1,l_2\in\{1,2\}$.   
-        & Eulerian path construction &  \pageref{sec:the_bracelet} \\
-
-        Odd Route
-        & Given a directed weighted graph $G$ and two vertices $s,t$ of $G$. Find the shortest path from 
-            $s$ to $t$ such that both its number of edges and total weight are odd.
-        & Construct $G'$, then Dijkstra &  \pageref{sec:odd_route} \\
+        Portfolios revisited 
+        & Given price, expected return and the covariance matrix of some assets 
+            and the maximum portfolio cost and maximum portfolio variance of some investor. 
+            Determine the maximum possible expected return.
+            & Quadratic Programming and Binary search &  \pageref{sec:portfolios_revisited} \\
 
 
         % Deleted Entries Stike Back
@@ -378,23 +378,26 @@ numberstyle=\tiny\color{gray}
     \section{Misc}
         \subsection*{Methods}
             \begin{itemize}
-                \item Dynamic programming (Trigger: current computation does not depend on previous computation)
-                \item Delaunay triangulation
-                \item Maximum matching
-                \item BFS/DFS
-                \item Binary search
-                \item Shortest path/Dijkstra
-                \item Linear Programming / Quadratic Programming
-                \item Network flows
-                \item Greedy
-                \item Backtracking
+                \item -
                 \item Sorting
-                \item (strongly) Connected components
-                \item Planarity test 
-                \item Minimum cut
+                \item Binary search
+                \item Greedy
+                \item Dynamic programming (Trigger: current computation does not depend on previous computation)
+                \item BFS/DFS
+                \item Shortest path/Dijkstra
                 \item Minimum spanning tree
+                \item (strongly) Connected components
                 \item Biconnected components 
+                \item Planarity test 
+                \item Maximum matching (Biconnected: Max Vertex Cover/Maximum Independent Set)
+                \item (global) Minimum cut
+                \item Network flows
                 \item Eulerian path
+                \item Minimum enclosing circle
+                \item Sweepline
+                \item Delaunay triangulation
+                \item Linear Programming / Quadratic Programming
+                \item Backtracking
             \end{itemize}
 
 
@@ -403,6 +406,7 @@ numberstyle=\tiny\color{gray}
                 \item \texttt{std::ios\_base::sync\_with\_stdio(false);}
                 \item check if there is possibility for a cache over testcases
                 \item check if every non-primitive variable is called by reference
+                \item find upper/lower bound
                 \item try binary search or combination of binary search and linear search
                 \item If CGAL: try randomization of input
                 \item If QP/LP:solve LP with \textbf{linear} program solver
