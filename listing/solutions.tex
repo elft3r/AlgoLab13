@@ -57,151 +57,159 @@ numberstyle=\tiny\color{gray}
                         breakautoindent=true,
                         linewidth=18cm]{#1}}
 
+
+\newcommand{\algoAuthor}{2} % 1 for Ben, 2 for Jonas
+
 \begin{document}
 
+    \vspace*{1cm}
+    \begin{center}
+        {\huge AlgoLab ETH 2013}
+    \end{center}
+    \vspace{1cm}
     % \begin{adjustwidth}{-0.75cm}{}
-    \begin{longtable}{ L{2cm} L{7cm} L{3cm} r r}
-        name & problem & solution & author & P\\
+    \begin{longtable}{ L{2cm} L{7cm} L{3cm} r}
+        name & problem & solution & P\\
       \hline
         Checking Change 
         & Given a number of different coin-values $c_i$, 
             output the minimum number of coins that are necessary to represent $m_i$.
-        & DP       & Ben    & \pageref{sec:checking_change} \\
+        & DP       & \pageref{sec:checking_change} \\
 
         Dominoes 
         & Given a list of tiles of different heights, determine how many tiles will
             fall after toppling the left-most tile.
-        & - & Ben & \ref{sec:dominoes} \\
+        & - &  \ref{sec:dominoes} \\
 
         Shelves 
         & Given two different types of shelves with length $m$ and $n$, $m\leq n$ and an empty space with length $l$,
             determine the optimal number of shelves $x$ and $y$ such that $x*m + y*n = l-\epsilon$, $epsilon>0$,
             epsilon is minimized. Second objective is minimizing $y$.
-        & clever loop with branching that reduces runtime to $O(\sqrt{l})$ & Ben & \ref{sec:shelves} \\
+        & clever loop with branching that reduces runtime to $O(\sqrt{l})$ &  \ref{sec:shelves} \\
 
         Even Pairs 
         & Given a list $x_1,\dots,x_n$, count the number of pairs $1\leq i\leq j \leq n$ for which 
             the sum is even.
-        & DP & Jonas & \ref{sec:even_pairs} \\
+        & DP &  \ref{sec:even_pairs} \\
 
         Aliens
         & Given a set of intervals, count those that have an element that is not contained in any other interval. 
-        & - & Jonas & \ref{sec:aliens} \\
+        & - &  \ref{sec:aliens} \\
 
         Boats 
         & Given a set of boat lengths $l_i$ and positions of rings $p_i$, determine the maximum number of boats that can be tied.
-        & Greedy (Boat with earliest end then longest) & Jonas & \ref{sec:boats} \\
+        & Greedy (Boat with earliest end then longest) &  \ref{sec:boats} \\
 
         False Coin 
         & Given a series weighing outcomes of several coins, determine which coin has a different weight than the other coins. 
-        & - & Jonas & \ref{sec:false_coin} \\
+        & - &  \ref{sec:false_coin} \\
 
         Formula One 
         & Given a sequence of integers, determine the minimum number of "swaps" of numbers at position $i$ and $i+1$ are necessary to sort the list. 
-        & merge sort and count swaps & Jonas & \ref{sec:formula_one} \\
+        & merge sort and count swaps &  \ref{sec:formula_one} \\
 
         Race Tracks 
         & Given a rectangular grid with obstacles, a start $S$ and goal position. An agent $A$ starts at $S$, has a $x$-$y$-velocity $(a,b)$ 
             $-3\leq a,b \leq3$. After each move $A$ can adjust $a'=a+n_a, b'=b+n_b, n_a,n_b \in \{-1,0,1\}$. 
             Determine the minimum number of moves necessary for $A$ to reach the goal. 
-        & represent $(x,y,(a,b))$ as a node in a graph, BFS & Jonas & \ref{sec:race_tracks} \\
+        & represent $(x,y,(a,b))$ as a node in a graph, BFS &  \ref{sec:race_tracks} \\
 
         Burning Coins 
         & Given a sequence of coins $c_1, \dots, c_n$ with values $v_1,\dots,v_n$. 
             Each player $\in \{A,B\}$ is alternately allowed to remove the leftmost or rightmost coin of the sequence until the sequence is empty. 
             Output the maximum value of coins that $A$ can remove. 
-        & DP & Jonas & \ref{sec:burning_coins} \\
+        & DP &  \ref{sec:burning_coins} \\
 
         Jump 
         & Given $n$ cells, a number representing how far the agent can jump and the cost $a_i$ to land on a cell. 
             Determine the minimum cost to get from cell $1$ to cell $n$.        
-        & DP & Jonas & \ref{sec:jump} \\
+        & DP &  \ref{sec:jump} \\
 
         Light Pattern 
         & Given a sequence of $n$ bulbs that are in the states "on" or "off", determine the minimal number of "changes" that are necessary such that  
             each interval $i*k$ to $(i+1)*k$ of the bulbs follows a given pattern. A "change" is either changing the state of a single bulb or
             change the state of every  bulb from $0$ up to $t*k-1$.
-        & - & Jonas & \ref{sec:light_pattern} \\
+        & - &  \ref{sec:light_pattern} \\
 
         Longest Path 
         & Determine the length of the longest path in a tree.
-        & DFS while recording tree height & Jonas & \ref{sec:longest_path} \\
+        & DFS while recording tree height &  \ref{sec:longest_path} \\
 
         Ants 
         & Given a graph $G$, and nodes $S_i$ of subgraphs $i$. 
             Build the subgraphs $i$ by starting at $S_i$ and do a uniform cost search until all nodes are explored.
             Find the cheapest path by combining all $S_i$ (not G) from node $a$ to $b$. 
-        & MST, then Dijkstra & Jonas & \ref{sec:ants} \\
+        & MST, then Dijkstra &  \ref{sec:ants} \\
 
         Bridges 
         & Given a connected graph $G$, find the edges whose lacking would result in two connected components         
-        & Biconnected components & Jonas & \ref{sec:bridges} \\
+        & Biconnected components &  \ref{sec:bridges} \\
 
         Build The Graph 
         &          
-        & MST and Dijkstra & Jonas & \ref{sec:build_the_graph} \\
+        & MST and Dijkstra &  \ref{sec:build_the_graph} \\
 
         Deleted Entries 
         & Given a graph $G$. Determine whether it is possible to divide the graph into $k$ groups such that every node can reach every node in every other group
             after deleting the in-group edges.
-        & MST and BFS to $k$-color & Jonas & \ref{sec:deleted_entries} \\
+        & MST and BFS to $k$-color &  \ref{sec:deleted_entries} \\
 
         Shy Programmers 
         & Given a graph $G$, decide if it is outerplanar, i.e., you can draw it in a plane so that all vertices lie on a 
             circle and all edges are straight and don't intersect.
-        & construct $G'$ then planarity test & Jonas & \ref{sec:shy_programmers} \\
+        & construct $G'$ then planarity test &  \ref{sec:shy_programmers} \\
 
         Algocoon 
         & Given a directed graph $G$ find the global minimum (directed) cut.
-        & Find source/sink that minimize flow. Start BFS from source to get the cut. & Jonas & \ref{sec:algocoon} \\
+        & Find source/sink that minimize flow. Start BFS from source to get the cut. &  \ref{sec:algocoon} \\
 
         Buddy Selection
         & Given $n$ students with $c$ hobbies each. Determine if they can be matched in pairs such that each pair shares at least $f$ hobbies.
-        & Maximum matching size & Jonas & \ref{sec:buddy_selection} \\
+        & Maximum matching size &  \ref{sec:buddy_selection} \\
 
         Satellites 
         & Minimum vertex cover of unweighted bipartite graph. 
-        & Compute maximum matching and use Konigs Theorem & Jonas & \ref{sec:satellites} \\
+        & Compute maximum matching and use Konigs Theorem &  \ref{sec:satellites} \\
 
         Coin Tossing
         & Given a sequence of $m$ games, some with known result, some without and $s_1,\dots,s_n$ the number of won games for each player.
             Determine if it is possible to assign outcomes to unknown games and get standings.
-        & Maximum flow & Jonas & \ref{sec:coin_tossing} \\
+        & Maximum flow &  \ref{sec:coin_tossing} \\
 
         Kingdom Defense 
         & Given graph with maximum and minimum edge capacities and starting and minimum ending vertex budget.
             Determine if its possible to send have a flow in the network such that min and max edge capacities and the minimum ending vertex budget holds.            
-        & Model minimal edge capacities, then maximum flow problem & Jonas & \ref{sec:kingdom_defense} \\
+        & Model minimal edge capacities, then maximum flow problem &  \ref{sec:kingdom_defense} \\
 
         Hit 
         & Given a ray and some line segments. Determine if ray intersects any segment. 
-        & loop \& test intersection & Jonas & \ref{sec:hit} \\
+        & loop \& test intersection &  \ref{sec:hit} \\
 
         First Hit 
         & Given a ray and some line segments, where does the ray first intersect a segment? 
-        & randomize segment order, loop while minimizing intersection & Jonas & \ref{sec:first_hit} \\
+        & randomize segment order, loop while minimizing intersection &  \ref{sec:first_hit} \\
 
         Antenna 
         & Given a set of points, find the minimum enclosing circle. 
-        & Minimum enclosing circle & Jonas & \ref{sec:antenna} \\
+        & Minimum enclosing circle &  \ref{sec:antenna} \\
 
         Almost Antenna
         & Given a set of points, find the minimum circle that encloses all but one point.
-        & Minimum enclosing circle & Jonas & \ref{sec:almost_antenna} \\
+        & Minimum enclosing circle &  \ref{sec:almost_antenna} \\
 
         Search Snippets 
         & Given a set of numbers and their 1D-positions (many for a single number) in a sequence, find the minimum length 
             of a sequence such that all numbers are occuring.       
-        & Sweepline & Jonas & \ref{sec:search_snippets} \\
+        & Sweepline &  \ref{sec:search_snippets} \\
 
         Search Snippets 
         & Given a set of numbers and their 1D-positions (many for a single number) in a sequence, find the minimum length 
             of a sequence such that all numbers are occuring.       
-        & Sweepline & Jonas & \ref{sec:search_snippets} \\
+        & Sweepline &  \ref{sec:search_snippets} \\
 
         Bistro 
         & Given a set of points in the plane $S$ and a set of points $T$. Determine for each point in $T$ the distance to the closest point in $S$.
-        & Delaunay triangulation on $S$ & Jonas & \ref{sec:bistro} \\
+        & Delaunay triangulation on $S$ &  \ref{sec:bistro} \\
 
         Germs 
         & Given a rectangle $R$ and a set of points $G$ inside the rectangle. For every point determine the minimal distance between either any other 
@@ -214,279 +222,370 @@ numberstyle=\tiny\color{gray}
 
         H1N1
         & How to move a disk without colliding with a given point set?
-        & Precompute for each Delaunay-face the escape radius using DFS. & Jonas & \ref{sec:h1n1} \\
+        & Precompute for each Delaunay-face the escape radius using DFS. &  \ref{sec:h1n1} \\
 
         Hiking Maps 
         & Given a polygonal path $p_0,\dots,p_{m-1}$ and triangles $t_0,\dots,t_{n-1}$, what is the minimum length of 
             an interval $[b,e)$contained in$[0,n)$ such that each leg $p_ip_{i+1}$ of the path is contained in at least one of
                     $t_b,\dots,t_{e-1}$
-        & Fast triangle intersection test and Sweepline & Jonas & \ref{sec:hiking_maps} \\
+        & Fast triangle intersection test and Sweepline &  \ref{sec:hiking_maps} \\
 
         Collisions 
         & Given a set $P$ of points in the plane and a number $d$, 
             how many points from $P$ have at least one other point from $P$ in distance $<d$?        
-        & Delaunay triangulation & Jonas & \ref{sec:collisions} \\
+        & Delaunay triangulation &  \ref{sec:collisions} \\
 
         Diet 
         & Given the price of a food product and some nutritional constraints, calculate the cheapest diet.
-        & Linear Programming & Jonas & \ref{sec:diet} \\
+        & Linear Programming &  \ref{sec:diet} \\
 
         Inball 
         & Given a cave $C=\{x\in \mathbb{R} ^d|a_i^Tx\leq b_i, i=1,\dots,n\}.$ Find the ball with the largest radius that is contained in $C$.
-        & Linear Programming & Jonas & \ref{sec:inball} \\
+        & Linear Programming &  \ref{sec:inball} \\
 
         Maximize It
         & Solve two quadratic programs. 
-        & Quadratic Programming & Jonas & \ref{sec:maximize_it} \\
+        & Quadratic Programming &  \ref{sec:maximize_it} \\
 
         Portfolios 
         & Given price, expected return and the covariance matrix of some assets 
             and the minimum expected portfolio return, maximum portfolio cost  and maximum portfolio variance of some investor. 
             Determine if a portfolio for the investor exists.
-        & Quadratic Programming & Jonas & \ref{sec:portfolios} \\
+        & Quadratic Programming &  \ref{sec:portfolios} \\
 
         Monkey Island 
         & Let $G$ be a graph $(V,E)$ with costs on vertices. Let $S$ be a subset of vertices,
             such that $\forall v\in V,\exists s\in S$ and there is a path from  $s$ to $v$. 
             Find $S$ that minimises $\sum_{s\in S}cost(s)$ 
-        & Strongly connected components & Jonas & \ref{sec:monkey_island} \\
+        & Strongly connected components &  \ref{sec:monkey_island} \\
 
         Placing Knights 
         & Determine the maximum number of chess-knights on a field with given size and obstacles.
-        & Maximum independent set ($n$-maximum matching) & Jonas & \ref{sec:placing_knights} \\
+        & Maximum independent set ($n$-maximum matching) &  \ref{sec:placing_knights} \\
 
         Shopping Trip 
         & Given a Graph and a set of nodes $S$ and a node $s$. 
             Determine if its possible to find $|S|$ edge disjoint paths from $s$ to $S_i \forall S_i \in S$. 
-        & Maximum flow & Jonas & \ref{sec:shopping_trip} \\
+        & Maximum flow &  \ref{sec:shopping_trip} \\
 
         Theev 
         & Given a set of points $P$ and the center of a circle $C_1$ in the plane. Determine the radius of two circles
             with centers $C_1$ and $C_2$ such that all points in $P$ are covered.
-        & Sorting and Min circle & Jonas & \ref{sec:theev} \\
+        & Sorting and Min circle &  \ref{sec:theev} \\
 
         Poker Chips 
         & Given some stacks $S_i$ with chips $c_{ij}$ each having a color. 
             An agent $A$ is allowed to remove the topmost chip from each stack provided they have the same color.
             If $A$ removed $k>1$ chips, he is awarded with $2^{k-2}$ points. 
             Determine the maximum number of points for the given $S_i$.          
-            & Dynamic Programming & Jonas & \ref{sec:poker_chips} \\
+            & Dynamic Programming &  \ref{sec:poker_chips} \\
 
         Portfolios revisited 
         & Given price, expected return and the covariance matrix of some assets 
             and the maximum portfolio cost and maximum portfolio variance of some investor. 
             Determine the maximum possible expected return.
-            & Quadratic Programming and Binary Search & Jonas & \ref{sec:poker_chips} \\
+            & Quadratic Programming and Binary search &  \ref{sec:portfolios_revisited} \\
+
+        Stamp Exhibition 
+        & Given a set of stamps $S$, a set of lamps $L$ and a set of segments $W$ in the plane. 
+            Each $s_i\in S$ has a maximal allowed light intensity $M_i$. Determine if its possible to 
+            set the power $p_i$ of the $i$-th lamp such that each stamp is illuminated with intensity $> 1$ 
+            but smaller $M_i$.
+        & Quadratic Programming &  \ref{sec:stamp_exhibition} \\
+
+        Tetris 
+        & Given an interval of width $w$ and a list $B$ of intervals with coordinates $[a_i,b_i], 0\leq a_i,b_i \leq w$ each.
+            A "full line" $L$ is a sequence of intervals of $B$ such that $[0,w]$ is contained in the concatenation of $l$.
+            Determine the maximum number of "full lines" $F$ that can be constructed using the intervals of $B$ while each interval
+            can only be used once. Moreover each interval border in $F$ is only allowed to occur once in $F$.
+            & Maximum flow &  \ref{sec:tetris} \\
+
+        Beach Bar 
+        & Given a set of points $P$ in the line. 
+            Determine the integral position of a point $x$ such that $|P_x|$ is maximum, 
+            where $P_x$ are the points in $P$ that are closer than 100 units away from $x$.
+            Further, if multiple $x$ are possible minimize the distance $d_x$ to the farthest point in $P_x$. 
+            Output all optimal positions, $|P_x|$ and $d_x$  
+        & Sweepline &  \ref{sec:beach_bar} \\
+
+        Cover 
+        & Given a rectangle and the center of $n$ disks. Determine the minimal radius s.t. the rectangle is fully covered.
+        & Delaunay triangulation (Voronoi) &  \ref{sec:cover} \\
+
+        Divisor Distance 
+        & Given a number $n$. Let $G_n$ be a graph with $1$ to $n$ as vertices. Further, in $G_n$ there is an (undirected) 
+            edge between vertices $i$ and $j$ with $i>j$ iff $j$ is the largest proper divisor of $i$. 
+            Determine the minimal distance of two given vertices in this graph.
+        & - &  \ref{sec:divisor_distance} \\
+
+        Tiles 
+        & Given a two-dimensional array of where each enty is either marked as "obstacle" or "no obstacle". 
+            Determine the maximum number of "tiles" consisting of two neighboring cells fit in the array. 
+            No cell of a tile can be placed on an "obstacle" cell. 
+            & Maximum matching &  \ref{sec:tiles} \\
+
+        Light the Stage 
+        & Given a set $D$ of $m$ disks (players) in the plane, a number $h$ and a sequence $I_1,\dots,I_n$ 
+            of $n$ disks of radius h (lamps), denote by $A_i, i\in \{0,\dots,i\}$ the set of all disks $d\in D$ 
+            such that $d$ does not overlap with $I_j$, for any $j\in \{1,\dots,i\}$.
+            Determine the largest $k$ such that $A_k$ is not empty. Output $A_k$
+            & Delaunay and binary search &  \ref{sec:light_the_stage} \\
+
+        Radiation 
+        & Given a set of points $H$ and a set of points $T$ in the plane. Determine the smallest number $d$, such that a polynomial 
+            of degree $d$ can completely distinguish all points in $H$ from all points $T$.
+            & Linear programming &  \ref{sec:radiation} \\
+
+        Sweepers 
+        & Given a undirected graph $G$, a list of start vertices $S$ and a list of end vertices $E, |S|=|E|$.
+            Determine if it is possible to find $|S|$ paths each starting at a vertex of $S$ and end at a vertex of $E$, 
+            (where every start and end vertex can only be used in one path) such that all edges of the graph occur in exactly one path.   
+        & Maximum flow and eulerian path check &  \ref{sec:sweepers} \\
+
+        The Bracelet 
+        & Given a list $B$ of tuples $t_i = (c_{i,1}, c_{i,2})$ and a set of colors $c_{i,j}\in C\subset \mathbb{R}$.
+            Determine if it is possible to construct a strongly connected directed graph such that all tuples in $B$ occur once as vertices,
+            each tuple has exactly one ingoing and exacly one outgoing edge and the following edges are allowed: 
+            There can be an edge from $t_i$ to $t_k$ or from $t_k$ to $t_i$ if $c_{i,l_1} = c_{k,l_2}, l_1,l_2\in\{1,2\}$.   
+        & Eulerian path construction &  \ref{sec:the_bracelet} \\
+
+        Odd Route
+        & Given a directed weighted graph $G$ and two vertices $s,t$ of $G$. Find the shortest path from 
+            $s$ to $t$ such that both its number of edges and total weight are odd.
+        & Construct $G'$, then Dijkstra &  \ref{sec:odd_route} \\
+
+
+        % Deleted Entries Stike Back
+        % Missing.
+        % 
+        % Knights
+        % Missing.
+        % 
+        % Next Path
+        % Missing.
+        % 
+        % 
+        % Radiation 2
+        % Missing.
+
+
     \end{longtable}    
     % \end{adjustwidth}
 
     %%%%%% week 1
     
     \section{Checking Change}
-        \includecode{../problems/w01/Checking_Change/CheckingChange1.cpp}
+        \label{sec:checking_change}
+        \includecode{../problems/w01/Checking_Change/CheckingChange\algoAuthor.cpp}
     
     \section{Dominoes}
-        \includecode{../problems/w01/Dominoes/Dominoes1.cpp}
+        \label{sec:dominoes}
+        \includecode{../problems/w01/Dominoes/Dominoes\algoAuthor.cpp}
     
     \section{Shelves}
-        \includecode{../problems/w01/Shelves/Shelves1.cpp}
+        \label{sec:shelves}
+        \includecode{../problems/w01/Shelves/Shelves\algoAuthor.cpp}
         
     \section{Even Pairs}
-        Even Pairs missing
+        \label{sec:even_pairs}
+        \includecode{../problems/w01/Shelves/Shelves\algoAuthor.cpp}
     
     %%%%%% week 2
     
     \section{Aliens}
-        \includecode{../problems/w02/Aliens/Aliens1.cpp}
+        \label{sec:aliens}
+        \includecode{../problems/w02/Aliens/Aliens\algoAuthor.cpp}
         
     \section{Boats}
-        \includecode{../problems/w02/Boats/Boats1.cpp}
+        \label{sec:boats}
+        \includecode{../problems/w02/Boats/Boats\algoAuthor.cpp}
         
     \section{False Coin}
-        \includecode{../problems/w02/False_Coin/FalseCoin1.cpp}
+        \label{sec:false_coin}
+        \includecode{../problems/w02/False_Coin/FalseCoin\algoAuthor.cpp}
         
     \section{Formulas}
-        \includecode{../problems/w02/Formulas/Formulas1.cpp}
+        \includecode{../problems/w02/Formulas/Formulas\algoAuthor.cpp}
         
     \section{Race Tracks}
-        \includecode{../problems/w02/Race_Tracks/RaceTracks1.cpp}
+        \includecode{../problems/w02/Race_Tracks/RaceTracks\algoAuthor.cpp}
 
     %%%%%% week 3
     
     \section{Burning Coins}
-        \includecode{../problems/w03/Burning_Coins/BurningCoin1.cpp}
+        \includecode{../problems/w03/Burning_Coins/BurningCoins\algoAuthor.cpp}
         
     \section{Jump}
-        \includecode{../problems/w03/Jump/Jump1.cpp}
+        \includecode{../problems/w03/Jump/Jump\algoAuthor.cpp}
         
     \section{Light Pattern}
-        \includecode{../problems/w03/Light_Pattern/LightPatterns1.cpp}
+        \includecode{../problems/w03/Light_Pattern/LightPattern\algoAuthor.cpp}
         
     \section{Longest Path}
-        \includecode{../problems/w03/Longest_Path/LongestPath1.cpp}
-        \includecode{../problems/w03/Longest_Path/LongestPathTraversal1.cpp}
+        \includecode{../problems/w03/Longest_Path/LongestPath\algoAuthor.cpp}
+        % \includecode{../problems/w03/Longest_Path/LongestPathTraversal\algoAuthor.cpp}
              
     %%%%%% week 4
               
     \section{Ants}
-        \includecode{../problems/w04/Ants/Ants1.cpp}
+        \includecode{../problems/w04/Ants/Ants\algoAuthor.cpp}
         
     \section{Bridges}
-        \includecode{../problems/w04/Bridges/Bridges1_BGL.cpp}
-        \includecode{../problems/w04/Bridges/Bridges1_Handmade.cpp}
+        \includecode{../problems/w04/Bridges/Bridges\algoAuthor.cpp}
         
     \section{Build The Graph}
-        \includecode{../problems/w04/Build_The_Graph/BuildTheGraph1.cpp}
+        \includecode{../problems/w04/Build_The_Graph/BuildTheGraph\algoAuthor.cpp}
         
     \section{Deleted Entries}
-        \includecode{../problems/w04/Deleted_Entries/DeletedEntries1.cpp}
+        \includecode{../problems/w04/Deleted_Entries/DeletedEntries\algoAuthor.cpp}
     
     \section{Shy Programmers}
-        \includecode{../problems/w04/Shy_Programmers/ShyProgrammers1.cpp}
+        \includecode{../problems/w04/Shy_Programmers/ShyProgrammers\algoAuthor.cpp}
 
     %%%%%% week 5
     
     \section{Algocoon Group}
-        Missing.
+        \includecode{../problems/w05/Algocoon/Algocoon\algoAuthor.cpp}
         
     \section{Buddies}
-        \includecode{../problems/w05/Buddies/Buddies1.cpp}
+        \includecode{../problems/w05/Buddies/Buddies\algoAuthor.cpp}
         
     \section{Satellites}
-        \includecode{../problems/w05/Satellites/Satellites1.cpp}
+        \includecode{../problems/w05/Satellites/Satellites\algoAuthor.cpp}
         
-    \section{Kingdom Defence}
-        \includecode{../problems/w05/Kingdom_Defense/KingdomDefence1.cpp}
+    \section{Kingdom Defense}
+        \includecode{../problems/w05/Kingdom_Defense/KingdomDefense\algoAuthor.cpp}
     
     \section{Coin Tossing}
-        \includecode{../problems/w05/Coin_Tossing/CoinToss1.cpp}
+        \includecode{../problems/w05/Coin_Tossing/CoinTossing\algoAuthor.cpp}
           
     %%%%%% week 6
 
     \section{Antenna}
-        \includecode{../problems/w06/Antenna/Antenna1.cpp}
+        \includecode{../problems/w06/Antenna/Antenna\algoAuthor.cpp}
         
     \section{Almost Antenna}
-        \includecode{../problems/w06/AlmostAntenna/AlmostAntenna1.cpp}
+        \includecode{../problems/w06/AlmostAntenna/AlmostAntenna\algoAuthor.cpp}
         
     \section{Hit}
-        \includecode{../problems/w06/Hit/Hit1.cpp}
+        \includecode{../problems/w06/Hit/Hit\algoAuthor.cpp}
         
     \section{First Hit}
-        \includecode{../problems/w06/FirstHit/FirstHit1.cpp}
+        \includecode{../problems/w06/FirstHit/FirstHit\algoAuthor.cpp}
     
     \section{Search Snippets}
-        \includecode{../problems/w06/Search_Snippets/SearchSnippets1.cpp}
+        \includecode{../problems/w06/Search_Snippets/SearchSnippets\algoAuthor.cpp}
               
     %%%%%% week 7
     
     \section{Bistro}
-        \includecode{../problems/w07/Bistro/Bistro1.cpp}
+        \includecode{../problems/w07/Bistro/Bistro\algoAuthor.cpp}
         
     \section{Germs}
-        \includecode{../problems/w07/Germs/Germs1.cpp}
+        \includecode{../problems/w07/Germs/Germs\algoAuthor.cpp}
         
     \section{Graypes}
-        \includecode{../problems/w07/Graypes/Graypes1.cpp}
+        \includecode{../problems/w07/Graypes/Graypes\algoAuthor.cpp}
         
     \section{H1N1}
-        \includecode{../problems/w07/H1N1/H1N1_1.cpp}
+        \includecode{../problems/w07/H1N1/H1N1_\algoAuthor.cpp}
     
     \section{HikingMaps}
-        \includecode{../problems/w07/HikingMaps/HikingMaps1.cpp}
+        \includecode{../problems/w07/HikingMaps/HikingMaps\algoAuthor.cpp}
     
     %%%%%% week 8
     
     \section{Maximize It!}
-        \includecode{../problems/w08/Maximize_It/MaximizeIt1.cpp}
+        \includecode{../problems/w08/Maximize_It/MaximizeIt\algoAuthor.cpp}
         
     \section{Collisions}
-        \includecode{../problems/w08/Collisions/Collisions1.cpp}
+        \includecode{../problems/w08/Collisions/Collisions\algoAuthor.cpp}
         
     \section{Diet}
-        \includecode{../problems/w08/Diet/Diet1.cpp}
+        \includecode{../problems/w08/Diet/Diet\algoAuthor.cpp}
         
     \section{Porfolios}
-        \includecode{../problems/w08/Portfolios/Portfolios1.cpp}
+        \includecode{../problems/w08/Portfolios/Portfolios\algoAuthor.cpp}
     
     \section{Inball}
-        \includecode{../problems/w08/Inball/Inball1.cpp}
+        \includecode{../problems/w08/Inball/Inball\algoAuthor.cpp}
     
     %%%%%% week 9
     
     \section{Monkey Island}
-        \includecode{../problems/w09/Monkey_Island/MonkeyIsland1.cpp}
+        \includecode{../problems/w09/Monkey_Island/MonkeyIsland\algoAuthor.cpp}
         
     \section{Placing Knights}
-        \includecode{../problems/w09/Placing_Knights/PlacingKnights1.cpp}
+        \includecode{../problems/w09/Placing_Knights/PlacingKnights\algoAuthor.cpp}
         
     \section{Shopping Trip}
-        \includecode{../problems/w09/Shopping_Trip/ShoppingTrip1.cpp}
+        \includecode{../problems/w09/Shopping_Trip/ShoppingTrip\algoAuthor.cpp}
         
     \section{TheeV}
-        \includecode{../problems/w09/TheeV/TheeV1.cpp}
+        \includecode{../problems/w09/TheeV/TheeV\algoAuthor.cpp}
    
     %%%%%% week 10
     
     \section{Poker Chips}
-        \includecode{../problems/w10/Poker_Chips/PokerChips1.cpp}
+        \includecode{../problems/w10/Poker_Chips/PokerChips\algoAuthor.cpp}
         
     \section{Portfolio Revisited}
-        \includecode{../problems/w10/Portfolios_Revisited/PortfolioRevisited1.cpp}
+        \includecode{../problems/w10/Portfolios_Revisited/PortfolioRevisited\algoAuthor.cpp}
         
     \section{Stamp Exhibition}
-        \includecode{../problems/w10/Stamp_Exhibition/StampExhibition1.cpp}
+        \includecode{../problems/w10/Stamp_Exhibition/StampExhibition\algoAuthor.cpp}
         
     \section{Tetris}
-        \includecode{../problems/w10/Tetris/Tetris1.cpp}
+        \includecode{../problems/w10/Tetris/Tetris\algoAuthor.cpp}
  
     %%%%%% week 11
     
     \section{Beach Bar}
-        \includecode{../problems/w11/Beach_Bar/BeachBar1.cpp}
+        \includecode{../problems/w11/Beach_Bar/BeachBar\algoAuthor.cpp}
         
     \section{Cover}
-        \includecode{../problems/w11/Cover/Cover1.cpp}
+        \includecode{../problems/w11/Cover/Cover\algoAuthor.cpp}
         
     \section{Divisor Distance}
-        \includecode{../problems/w11/Divisor_Distance/DivisorDistance1.cpp}
+        \includecode{../problems/w11/Divisor_Distance/DivisorDistance\algoAuthor.cpp}
         
     \section{Tiles}
-        \includecode{../problems/w11/Tiles/Tiles1.cpp}
+        \includecode{../problems/w11/Tiles/Tiles\algoAuthor.cpp}
         
     %%%%%% week 12
     
     \section{Deleted Entries Stike Back}
         Missing.
-        %\includecode{../problems/w12/Deleted_Entries_Strike_Back/Sol1.cpp}
+        %\includecode{../problems/w12/Deleted_Entries_Strike_Back/Sol\algoAuthor.cpp}
         
     \section{Light The Stage}
-        Missing.
-        %\includecode{../problems/w12/LightTheStage/LightTheStage1.cpp}
+        \includecode{../problems/w12/Light_The_Stage/LightTheStage\algoAuthor.cpp}
         
     \section{Radiation}
-        Missing.
-        %\includecode{../problems/w12/Radiation/Radiation1.cpp}
+        \includecode{../problems/w12/Radiation/Radiation\algoAuthor.cpp}
         
     \section{Sweepers}
-        \includecode{../problems/w12/Sweepers/Sweepers1.cpp}
+        \includecode{../problems/w12/Sweepers/Sweepers\algoAuthor.cpp}
         
     \section{The Bracelet}
-        \includecode{../problems/w12/The_Bracelet/TheBracelet1.cpp}
+        \includecode{../problems/w12/The_Bracelet/TheBracelet\algoAuthor.cpp}
         
     %%%%%% week 13
     
     \section{Knights}
-        \includecode{../problems/w13/Knights/Knights1.cpp}
+        Missing.
+        % \includecode{../problems/w13/Knights/Knights\algoAuthor.cpp}
         
     \section{Next Path}
-        \includecode{../problems/w13/NextPath/NextPath1.cpp}
+        Missing.
+        % \includecode{../problems/w13/NextPath/NextPath\algoAuthor.cpp}
         
     \section{Odd Route}
-        \includecode{../problems/w13/OddRoute/OddRoute1.cpp}
+        Missing.
+        \includecode{../problems/w13/OddRoute/OddRoute\algoAuthor.cpp}
         
     \section{Radiation 2}
         Missing.
-        %\includecode{../problems/w13/Radiation/Radiation1.cpp}
+        %\includecode{../problems/w13/Radiation/Radiation\algoAuthor.cpp}
     
 \end{document}
