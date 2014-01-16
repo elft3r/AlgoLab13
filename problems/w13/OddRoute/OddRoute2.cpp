@@ -18,7 +18,6 @@ void testCase() {
     int numVertices, numEdges;
     cin>>numVertices>>numEdges;
     Graph g(numVertices*4);
-    // Graph g2(numVertices);
 
     int source,target;
     cin>>source>>target;
@@ -26,7 +25,6 @@ void testCase() {
     target = numVertices*3 + target;
 
     property_map<Graph, edge_weight_t>::type weightMap = get(edge_weight, g);
-    // property_map<Graph, edge_weight_t>::type weightMap2 = get(edge_weight, g2);
     for(int i = 0; i < numEdges; ++i)
     {
         int u,v,w;
@@ -56,8 +54,6 @@ void testCase() {
 
 
         }
-                // tie(e, success) = add_edge(v, u, g2);
-        // weightMap2[e] = w;
     }
 
     std::vector<Vertex> predecessors(num_vertices(g));
@@ -72,29 +68,6 @@ void testCase() {
         cout<<"no"<<endl;
     }
 
-    // std::vector<Vertex> predecessors2(num_vertices(g));
-    // std::vector<int> distancesFromTarget(num_vertices(g));
-    // dijkstra_shortest_paths(g2, target,
-    //     predecessor_map(&predecessors2[0]).distance_map(&distancesFromTarget[0]));
-
-
-    // int min = numeric_limits<int>::max();
-    // int minI = -1;
-    // for(int i = 0; i<numVertices;i++) {
-    //     int tempMin = distancesFromSource[i] + distancesFromTarget[i];
-    //     // cout<<distancesFromSource[i] <<" "<< distancesFromTarget[i]<<" "<<tempMin<<endl;
-    //     if(tempMin%2==1 && tempMin < min) {
-    //         min = tempMin;
-    //         minI = i;
-    //     }
-    // }
-
-    // if(min == numeric_limits<int>::max()) {
-    //     cout<<"no";
-    // } else {
-    //     cout<<min<<" "<<minI;
-    // }
-    // cout<<endl;
 }
 
 

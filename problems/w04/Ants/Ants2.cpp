@@ -1,3 +1,4 @@
+// would be faster, when not every species has its own graph but only the property maps change.
 #include <iostream>
 #include <vector>
 #include <boost/config.hpp>

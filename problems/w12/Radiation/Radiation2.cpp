@@ -50,38 +50,36 @@ int midpoint(int lowerBound, int upperBound) {
 }
 
 bool testDegree(vector<Point3> &cells, int numHealthy, int degree) {
-    Program qp (CGAL::SMALLER, false, 0, false, 0); 
+    Program lp (CGAL::SMALLER, false, 0, false, 0); 
     for(int c=0; c<cells.size(); c++) {
         int row = c;
         int rowIndex = 0;
         for(int i=0; i <= degree; i++) {
             for(int j=0; j <= degree-i; j++) {
                 for(int k=0; k <= degree-i-j; k++) {
-                    qp.set_a(rowIndex, row, 
+                    lp.set_a(rowIndex, row, 
                             getPowerArray(cells[c].x, i)
                             * getPowerArray(cells[c].y, j)
                             * getPowerArray(cells[c].z, k)
-                            // pow(cells[c].x, i) * pow(cells[c].y, j) * pow(cells[c].z, k)
                             ); 
                     if(row<numHealthy) {
                         //healthy cell
-                        qp.set_b(row,-1);
-                        qp.set_r(row, CGAL::SMALLER);
+                        lp.set_b(row,-1);
+                        lp.set_r(row, CGAL::SMALLER);
                     } else {
                         //tumor cell
-                        qp.set_b(row,1);
-                        qp.set_r(row, CGAL::LARGER);
+                        lp.set_b(row,1);
+                        lp.set_r(row, CGAL::LARGER);
                     }
                     ++rowIndex;
                 }
             }
         }
-        // qp.set_d(row,row,1);
     }
     CGAL::Quadratic_program_options options;
     options.set_pricing_strategy(CGAL::QP_BLAND);
-    Solution s = CGAL::solve_linear_program(qp, ET(), options);
-    assert(s.solves_linear_program(qp));
+    Solution s = CGAL::solve_linear_program(lp, ET(), options);
+    assert(s.solves_linear_program(lp));
 
     return !s.is_infeasible();
 }
