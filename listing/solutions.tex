@@ -145,12 +145,16 @@ numberstyle=\tiny\color{gray}
         Determine the largest set of vertex disjoint edges.
         & DP &  lec. 12 \\
 
-
         Race Tracks 
         & Given a rectangular grid with obstacles, a start $S$ and goal position. An agent $A$ starts at $S$, has a $x$-$y$-velocity $(a,b)$ 
             $-3\leq a,b \leq3$. After each move $A$ can adjust $a'=a+n_a, b'=b+n_b, n_a,n_b \in \{-1,0,1\}$. 
             Determine the minimum number of moves necessary for $A$ to reach the goal. 
         & represent $(x,y,(a,b))$ as a node in a graph, BFS &  \pageref{sec:race_tracks} \\
+
+        Next Path 
+        & Given a directed Graph with vertices $s$ and $t$, determine the length of the second shortest path.
+        & BFS &  \pageref{sec:next_path} \\
+
 
         Longest Path 
         & Determine the length of the longest path in a tree.
@@ -707,12 +711,10 @@ numberstyle=\tiny\color{gray}
         
     \section{Next Path}
         \label{sec:next_path}
-        Missing.
-        % \includecode{../problems/w13/NextPath/NextPath\algoAuthor.cpp}
+        \includecode{../problems/w13/NextPath/NextPath\algoAuthor.cpp}
         
     \section{Odd Route}
         \label{sec:odd_route}
-        Missing.
         \includecode{../problems/w13/OddRoute/OddRoute\algoAuthor.cpp}
         
     \section{Radiation 2}
