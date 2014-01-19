@@ -7,6 +7,16 @@
 using namespace std;
 
 /*
+ * debug macro
+ */
+#define DEBUG
+#ifdef DEBUG
+#define D(x) x
+#else 
+#define D(x) 
+#endif
+
+/*
  * fast I/O
  */
 ios_base::sync_with_stdio(false);

@@ -242,10 +242,15 @@ numberstyle=\tiny\color{gray}
         & Model minimal edge capacities, then maximum flow problem &  \pageref{sec:kingdom_defense} \\
 
         Sweepers 
-        & Given a undirected graph $G$, a list of start vertices $S$ and a list of end vertices $E, |S|=|E|$.
+        & Given an undirected graph $G$, a list of start vertices $S$ and a list of end vertices $E, |S|=|E|$.
             Determine if it is possible to find $|S|$ paths each starting at a vertex of $S$ and end at a vertex of $E$, 
             (where every start and end vertex can only be used in one path) such that all edges of the graph occur in exactly one path.   
         & Maximum flow and eulerian path check &  \pageref{sec:sweepers} \\
+
+        Knights 
+        & Given an undirected graph $G$, a list of start vertices $S$ and a list of end vertices $E$.
+            Determine the maximum number of edge and vertex disjoint paths from $S$ to  $E$.
+        & Maximum flow &  \pageref{sec:knights} \\
 
         The Bracelet 
         & Given a list $B$ of tuples $t_i = (c_{i,1}, c_{i,2})$ and a set of colors $c_{i,j}\in C\subset \mathbb{R}$.
@@ -698,8 +703,7 @@ numberstyle=\tiny\color{gray}
     
     \section{Knights}
         \label{sec:knights}
-        Missing.
-        % \includecode{../problems/w13/Knights/Knights\algoAuthor.cpp}
+        \includecode{../problems/w13/Knights/Knights\algoAuthor.cpp}
         
     \section{Next Path}
         \label{sec:next_path}
