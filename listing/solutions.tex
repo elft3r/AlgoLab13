@@ -170,28 +170,32 @@ numberstyle=\tiny\color{gray}
         & MST and Dijkstra &  \pageref{sec:build_the_graph} \\
 
         Ants 
-        & Given a graph $G$, and nodes $S_i$ of subgraphs $i$. 
+        & Given an undirected graph $G$, and nodes $S_i$ of subgraphs $i$. 
             Build the subgraphs $i$ by starting at $S_i$ and do a uniform cost search until all nodes are explored.
             Find the cheapest path by combining all $S_i$ (not G) from node $a$ to $b$. 
         & MST, then Dijkstra &  \pageref{sec:ants} \\
 
         Deleted Entries 
-        & Given a graph $G$. Determine whether it is possible to divide the graph into $k$ groups such that every node can reach every node in every other group
-            after deleting the in-group edges.
+        & Given a undirected graph $G$. Find $k$-coloring such that the graph stays connected after deleting all edges inside color classes. 
         & MST and BFS to $k$-color &  \pageref{sec:deleted_entries} \\
 
         Monkey Island 
-        & Let $G$ be a graph $(V,E)$ with costs on vertices. Let $S$ be a subset of vertices,
+        & Let $G$ be a undirected graph $(V,E)$ with costs on vertices. Let $S$ be a subset of vertices,
             such that $\forall v\in V,\exists s\in S$ and there is a path from  $s$ to $v$. 
             Find $S$ that minimises $\sum_{s\in S}cost(s)$ 
         & Strongly connected components &  \pageref{sec:monkey_island} \\
 
         Bridges 
-        & Given a connected graph $G$, find the edges whose lacking would result in two connected components         
+        & Given a connected undirected graph $G$, find the edges whose lacking would result in two connected components         
         & Biconnected components &  \pageref{sec:bridges} \\
 
+        Deleted Entries Strike Back 
+        & Given a connected undirected graph $G$, find 3-coloring such that the graph stays biconnected after deleting all edges inside color classes.         
+        & Biconnected components, DFS-coloring using lowpoint map &  \pageref{sec:deleted_entries_strike_back} \\
+
+
         Shy Programmers 
-        & Given a graph $G$, decide if it is outerplanar, i.e., you can draw it in a plane so that all vertices lie on a 
+        & Given a undirected graph $G$, decide if it is outerplanar, i.e., you can draw it in a plane so that all vertices lie on a 
             circle and all edges are straight and don't intersect.
         & construct $G'$ then planarity test &  \pageref{sec:shy_programmers} \\
 
@@ -212,7 +216,7 @@ numberstyle=\tiny\color{gray}
 
 
         Satellites 
-        & Minimum vertex cover of unweighted bipartite graph. 
+        & Minimum vertex cover of unweighted bipartite undirect graph. 
         & Compute maximum matching and use Konigs Theorem &  \pageref{sec:satellites} \\
 
         Placing Knights 
@@ -241,7 +245,7 @@ numberstyle=\tiny\color{gray}
             & Maximum flow &  \pageref{sec:tetris} \\
 
         Kingdom Defense 
-        & Given graph with maximum and minimum edge capacities and starting and minimum ending vertex budget.
+        & Given directed graph with maximum and minimum edge capacities and starting and minimum ending vertex budget.
             Determine if its possible to send have a flow in the network such that min and max edge capacities and the minimum ending vertex budget holds.            
         & Model minimal edge capacities, then maximum flow problem &  \pageref{sec:kingdom_defense} \\
 
@@ -340,6 +344,11 @@ numberstyle=\tiny\color{gray}
             such that $d$ does not overlap with $I_j$, for any $j\in \{1,\dots,i\}$.
             Determine the largest $k$ such that $A_k$ is not empty. Output $A_k$
             & Delaunay and binary search &  \pageref{sec:light_the_stage} \\
+
+        Radiation 2 
+        & Given $n$ healthy points and $m$ cancer points in the plane, find a disk containing no 
+            healthy point but a maximum number of cancer points.
+        & Delaunay and Sweepline along Voronoi Edge &  \pageref{radiation_2} \\
 
         Diet 
         & Given the price of a food product and some nutritional constraints, calculate the cheapest diet.
@@ -684,8 +693,8 @@ numberstyle=\tiny\color{gray}
     
     \section{Deleted Entries Stike Back}
         \label{sec:deleted_entries_strike_back}
-        Missing.
-        %\includecode{../problems/w12/Deleted_Entries_Strike_Back/Sol\algoAuthor.cpp}
+        not correct
+        \includecode{../problems/w12/Deleted_Entries_Strike_Back/DeletedEntriesStrikeBack\algoAuthor.cpp}
         
     \section{Light The Stage}
         \label{sec:light_the_stage}
@@ -719,8 +728,7 @@ numberstyle=\tiny\color{gray}
         
     \section{Radiation 2}
         \label{sec:radiation_2}
-        Missing.
-        %\includecode{../problems/w13/Radiation/Radiation\algoAuthor.cpp}
+        % \includecode{../problems/w13/Radiation_2/Radiation2\algoAuthor.cpp}
 
     \section{Missing Roads}
         \label{sec:missing_roads}

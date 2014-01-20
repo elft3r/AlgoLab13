@@ -263,6 +263,101 @@ int main ()
 }
 
 /*
+ * Boost named parameters and visitor
+ */
+
+vector<int> discoverTimeToVertex;
+
+// Custom visitor used to record DFS order.
+struct CustomVisitor : public default_dfs_visitor {
+	void discover_vertex(int u, const Graph& G) {
+		discoverTimeToVertex.push_back(u);
+	}
+};
+
+vector<Vertex> low(numVertices);
+vector<Vertex> vertexToDiscoverTime(numVertices);
+vector<Vertex> predecessor(numVertices);
+discoverTimeToVertex.clear();
+size_t num_comps 
+    = biconnected_components(g,component,
+                                lowpoint_map(&low[0])
+                                .discover_time_map(&vertexToDiscoverTime[0])
+                                .predecessor_map(&predecessor[0])
+                                .visitor(CustomVisitor()));
+
+/*
+ * Boost: defining a custom property
+ */
+namespace boost {
+    enum edge_info_t { edge_info = 219 }; // A unique ID.
+    BOOST_INSTALL_PROPERTY(edge, info);
+}
+
+struct EdgeInfo {
+...
+}
+
+typedef adjacency_list<vecS, vecS, directedS,
+    no_property, // vertex property, none this time
+    property<edge_info_t, EdgeInfo> //edge property, could also use a predefined property like edge_name_t and define it with integers
+    > Graph;
+typedef property_map<Graph, edge_info_t>::type InfoMap;
+...
+InfoMap info_map = get(edge_info, G);
+info_map[e] = ...
+
+/*
+ * CGAL: add property to a point
+ */
+template <typename I>
+struct MyP : public K::Point_2 {
+    MyP(const K::FT& x, const K::FT& y, const I& i_) : K::Point_2(x,y), i(i_) {}
+    I i;
+};
+typedef MyP<std::pair<std::size_t,K::FT> > Participant;
+Participant(x,y,make_pair(i,h));
+
+/*
+ * CGAL: Voronoi dual
+ */
+// process all Voronoi vertices
+for (Face_iterator f = t.finite_faces_begin(); f != t.finite_faces_end(); ++f) {
+    K::Point_2 p = t.dual(f);
+    ...
+}
+// process all Voronoi edges
+for(Edge_iterator e = t.finite_edges_begin(); e != t.finite_edges_end(); ++e) {
+    CGAL::Object o = t.dual(e);
+    // o can be a segment, a ray or a line ...
+    ...
+}
+
+/*
+ * CGAL: Enhancing faces/vertices
+ */
+//Can use maps for {Face,Vertices,Edges(with some additional work)}-handles
+//or:
+#include <CGAL/Triangulation_face_base_with_info_2.h>
+enum Color { Black = 0, White = 1, Red = 2};
+typedef CGAL::Exact_predicates_inexact_constructions_kernel K;
+typedef CGAL::Triangulation_vertex_base_2<K> Vb;
+//New face class, vertex class stays the same. With info parameter. Here each face gets a color
+typedef CGAL::Triangulation_face_base_with_info_2<Color,K> Fb; 
+//change the underlying triangulation structure
+typedef CGAL::Triangulation_data_structure_2<Vb,Fb> Tds;
+typedef CGAL::Delaunay_triangulation_2<K,Tds> Triangulation;
+
+Triangulation t;
+
+// color all infinite faces black
+Triangulation::Face_circulator f = t.incident_faces(t.infinite_vertex());
+do {
+    f->info() = Black;
+} while (++f != t.incident_faces(t.infinite_vertex()));
+
+
+/*
  * QP Debugging
  */
 cout<<qp.get_n()<<std::endl;
