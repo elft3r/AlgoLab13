@@ -68,19 +68,26 @@ void testCase() {
     }
 
     //is connected?
+    vector<int> con_component(numVertices);
+    size_t num_comps = connected_components(g, &con_component[0]);
+    if(num_comps!=1) {
+        cout<<"no"<<endl;
+        return;
+    }
 
     //is biconnected?
     vector<Vertex> low(numVertices);
     vector<Vertex> vertexToDiscoverTime(numVertices);
     vector<Vertex> predecessor(numVertices);
     discoverTimeToVertex.clear();
-    size_t num_comps 
+
+    size_t num_bicomps 
         = biconnected_components(g,component,
                                     lowpoint_map(&low[0])
                                     .discover_time_map(&vertexToDiscoverTime[0])
                                     .predecessor_map(&predecessor[0])
                                     .visitor(CustomVisitor()));
-    if(num_comps!=1) {
+    if(num_bicomps!=1) {
         cout<<"no"<<endl;
         return;
     } 
@@ -95,7 +102,7 @@ void testCase() {
 
     for(int i=1; i< numVertices; i++) {
         int v = discoverTimeToVertex[i];
-        color[v] = newColor(color[predecessor[v]], color[low[v]-1]);
+        color[v] = newColor(color[predecessor[v]], color[discoverTimeToVertex[low[v]-1]]);
     }
 
     vector<vector<int> > colors(3);
